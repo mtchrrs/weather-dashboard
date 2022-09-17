@@ -1,0 +1,42 @@
+/* Custom styles */
+
+body{
+    margin: auto;
+    width: 80%;
+}
+
+.jumbotron-custom{
+    padding-bottom: 10px;
+}
+
+.title-display{
+    text-align: center;
+    
+}
+
+.current-time{
+    text-align: center;
+}
+
+.form-container{}
+
+.custom-input{
+    align-content: center;
+    width: 80%;
+    margin: 10px;
+}
+
+.custom-btn{
+    width: 15%;
+}
+
+.custom-searches-card{
+    border: 2px solid black;
+    background-color: aqua;
+    width: 30%;
+    float: left;
+}
+
+#created-li{
+    list-style: none;
+}
