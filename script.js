@@ -39,7 +39,7 @@ $(document).on('click', '#submit-btn', function(event){
         let searchesArr = JSON.parse(localStorage.getItem("searchesObject")) || [];
         var searchesObject = {
             reference: date,
-            city: citySearched,
+            city: citySearched.toUpperCase(),
         };     
         searchesArr.unshift(searchesObject);
         localStorage.setItem("searchesObject", JSON.stringify(searchesArr));
@@ -83,8 +83,6 @@ $(function getCityData(){
     var recentCities = JSON.parse(localStorage.getItem("searchesObject"));
     var currentCity = recentCities[0].city;
     var queryURL = "https://api.openweathermap.org/geo/1.0/direct?q=" + currentCity + "&limit=1&appid=" + APIKey02;
-    
-    $(cityTitle).html(currentCity);
 
     return fetch(queryURL)
     .then(function(response){
@@ -108,13 +106,15 @@ $(function getCityData(){
             let windSpeed = result.list[0].speed;
             let icon = result.list[0].weather[0].icon;
 
-            currentDay.innerHTML = `
-            <div class="created">
+            var today = document.createElement("h2");
+
+            today.innerHTML = `
+            <div class="created title">
             <h1>
-                <span id="display-city">${currentCity}</span>
-                <span id="display-date">${moment.unix(date).format("dd-MM-YY")}</span>
+                <span id="display-city">${currentCity}
+                <span id="display-date">${moment.unix(date).format("DD-MM-YY")}
             </h1>
-            <div class="card-body d-flex flex-wrap border-light mb-3 bg-success p-2 text-dark bg-opacity-25 rounded">
+            <div class="card-body d-flex flex-wrap border-light mb-3 p-2 text-dark bg-opacity-25 rounded">
                 <h4 class="col-sm">Temp: ${temp}
                 <h4 class="col-sm">Humidity: ${humidity}%
                 <h4 class="col-sm">Wind speed: ${windSpeed}
@@ -122,7 +122,10 @@ $(function getCityData(){
             </div>
             </div>`;
 
-            for (let i=1; i <=6; i++){
+            currentDay.append(today);
+
+
+            for (let i=1; i <=5; i++){
                 let dateNext = result.list[i].dt;
                 let tempNext = result.list[i].temp.day;
                 let humidityNext = result.list[i].humidity;
@@ -132,7 +135,7 @@ $(function getCityData(){
                 var nextDay = document.createElement("h2");
 
                 nextDay.innerHTML = 
-                `<div class="created card-body d-flex flex-wrap border-light mb-3 bg-success p-2 text-dark bg-opacity-25 rounded">
+                `<div class="next-five created card-body flex-row flex-wrap border-light mb-3 p-2 text-dark bg-opacity-25 rounded">
                     <h4 class="col-sm">${moment.unix(dateNext).format("ll")}
                     <h4 class="col-sm">Temp: ${tempNext}&#176;C
                     <h4 class="col-sm">Humidity: ${humidityNext}%
@@ -158,7 +161,6 @@ $(function(){
         var queryPastURL = "https://api.openweathermap.org/geo/1.0/direct?q=" + pastSearchName + "&limit=1&appid=" + APIKey02;
         console.log(queryPastURL)
         
-        $(cityTitle).html(pastSearchName); 
         
         return fetch(queryPastURL)
         .then(function(response){
@@ -181,21 +183,26 @@ $(function(){
                 let windSpeed = result.list[0].speed;
                 let icon = result.list[0].weather[0].icon;
 
-                currentDay.innerHTML = `
-                <div>
-                    <h1 calss="created">
-                    <span id="display-city">${pastSearchName}</span>
-                    <span id="display-date">${moment.unix(date).format("dd-MM-YY")}</span>
-                    </h1>
-                    <div class="card-body d-flex flex-wrap border-light mb-3 bg-success p-2 text-dark bg-opacity-25 rounded">
+                var today = document.createElement("h2");
+
+                today.innerHTML = `
+                <div class="created title">
+                <h1>
+                    <span id="display-city">${pastSearchName}
+                    <span id="display-date">${moment.unix(date).format("DD-MM-YY")}
+                </h1>
+                <div class="card-body d-flex flex-wrap border-light mb-3 p-2 text-dark bg-opacity-25 rounded">
                     <h4 class="col-sm">Temp: ${temp}
                     <h4 class="col-sm">Humidity: ${humidity}%
                     <h4 class="col-sm">Wind speed: ${windSpeed}
                     <h4 class="col-sm"><img src="http://openweathermap.org/img/wn//${icon}@4x.png">
-                    </div>
+                </div>
                 </div>`;
+    
+                currentDay.append(today);
+    
 
-                for (let i=1; i<=6; i++){
+                for (let i=1; i<=5; i++){
                     let dateNext = result.list[i].dt;
                     let tempNext = result.list[i].temp.day;
                     let humidityNext = result.list[i].humidity;
@@ -204,7 +211,7 @@ $(function(){
                     
                     var nextDay = document.createElement("h2");
                     nextDay.innerHTML = 
-                    `<div class="created card-body d-flex flex-wrap border-light mb-3 bg-success p-2 text-dark bg-opacity-25 rounded">
+                    `<div class="next-five created card-body d-flex flex-wrap border-light mb-3 p-2 text-dark bg-opacity-25 rounded">
                         <h4 class="col-sm">${moment.unix(dateNext).format("ll")}
                         <h4 class="col-sm">Temp: ${tempNext}&#176;C
                         <h4 class="col-sm">Humidity: ${humidityNext}%
