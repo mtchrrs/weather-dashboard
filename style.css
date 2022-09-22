@@ -66,33 +66,3 @@ body{
     width: auto;
     border: 5px solid ;
 }
-/*
-#current-conditions-card{
-    text-align: center;
-    border: 2px solid black;
-    background-color: white;
-    width: 80%;
-    float: left;
-    height: 200px;
-    position: relative;
-}
-
-#key-card{
-    text-align: center;
-    border: 2px solid black;
-    background-color: white;
-    width: 20%;
-    float: left;
-    height: 200px;
-    position: relative;
-}
-
-#future-conditions-card{
-    text-align: center;
-    border: 2px solid black;
-    background-color: white;
-    width: 20%;
-    float: left;
-    height: 200px;
-    position: relative;
-} */
