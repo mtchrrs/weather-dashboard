@@ -34,7 +34,7 @@ THEN I am again presented with current and future conditions for that city
 
 # Using the Application
 
-Application URL: 
+Application URL: https://mtchrrs.github.io/weather-dashboard/
 
 So you're looking for the weather hey? No windows? Don't worry, I've got your back.
 
