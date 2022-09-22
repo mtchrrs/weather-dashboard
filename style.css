@@ -1,4 +1,4 @@
-/* Custom styles */
+/* Custom styles
 
 body{
     margin: auto;
@@ -31,12 +31,45 @@ body{
 }
 
 .custom-searches-card{
+    text-align: center;
     border: 2px solid black;
-    background-color: aqua;
-    width: 30%;
+    background-color: white;
+    width: 20%;
     float: left;
+    height: 200px;
 }
 
 #created-li{
     list-style: none;
+    text-align: left;
 }
+
+#current-conditions-card{
+    text-align: center;
+    border: 2px solid black;
+    background-color: white;
+    width: 80%;
+    float: left;
+    height: 200px;
+    position: relative;
+}
+
+#key-card{
+    text-align: center;
+    border: 2px solid black;
+    background-color: white;
+    width: 20%;
+    float: left;
+    height: 200px;
+    position: relative;
+}
+
+#future-conditions-card{
+    text-align: center;
+    border: 2px solid black;
+    background-color: white;
+    width: 20%;
+    float: left;
+    height: 200px;
+    position: relative;
+} */
