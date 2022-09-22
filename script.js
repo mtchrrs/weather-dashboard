@@ -137,13 +137,13 @@ $(function getCityData(){
             var today = document.createElement("h2");
 
             today.innerHTML = `
-            <div class="created title">
+            <div class="created center title">
             <h1>
                 <span id="display-city">${currentCity}
                 <span id="display-date">${moment.unix(date).format("DD-MM-YY")}
             </h1>
-            <div class="card-body d-flex flex-wrap border-light mb-3 p-2 text-dark bg-opacity-25 rounded">
-                <h4 class="col-sm">Temp: ${temp}
+            <div class="today-weather card-body d-flex flex-wrap border-light mb-3 p-2 text-dark bg-opacity-25 rounded">
+                <h4 class="col-sm">Temp: ${temp}&#176;C
                 <h4 class="col-sm">Humidity: ${humidity}%
                 <h4 class="col-sm">Wind speed: ${windSpeed}
                 <h4 class="col-sm"><img src="http://openweathermap.org/img/wn//${icon}@4x.png">
@@ -218,7 +218,7 @@ $(function(){
                     <span id="display-date">${moment.unix(date).format("DD-MM-YY")}
                 </h1>
                 <div class="card-body d-flex flex-wrap border-light mb-3 p-2 text-dark bg-opacity-25 rounded">
-                    <h4 class="col-sm">Temp: ${temp}
+                    <h4 class="col-sm">Temp: ${temp}&#176;C
                     <h4 class="col-sm">Humidity: ${humidity}%
                     <h4 class="col-sm">Wind speed: ${windSpeed}
                     <h4 class="col-sm"><img src="http://openweathermap.org/img/wn//${icon}@4x.png">

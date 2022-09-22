@@ -60,9 +60,19 @@ body{
 
 .title{
     text-align: center;
+    justify-content: center;
+}
+
+
+.today-weather{
+    align-items: center;
+    border: 5px solid ;
+    width: 80%;
+    margin: auto;
 }
 
 .next-five{
     width: auto;
     border: 5px solid ;
+    
 }
